@@ -6,9 +6,9 @@ const getForecast = require('../utils.js/forecast')
     console.log(url,"gg")
     request({ url: url, json: true }, (err, response) => {
         let data = {
-            lat: response?.body?.features[0]?.bbox[0],
-            long: response?.body?.features[0]?.bbox[1],
-            place: response?.body?.features[0]?.place_name,
+            lat: response?.body?.features[0]?.bbox[0]||null,
+            long: response?.body?.features[0]?.bbox[1]||null,
+            place: response?.body?.features[0]?.place_name|null,
         }
         getForecast(data,(err,weather)=>{
             callback(err, weather)

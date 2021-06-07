@@ -5,7 +5,7 @@ const geocode = require('./utils.js/geocode');
 const { request } = require('express');
 // const geocode = require('./utils.js/geocode');
 const app =express()
-
+const port = process.env.PORT||3000
 // define paths for express config
 const publicDirectory = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
@@ -65,6 +65,6 @@ app.get('*', (req, res) => {
         name: 'back'
     })
 })
-app.listen(3000,()=>{
-    console.log('server is up at 3000')
+app.listen(port,()=>{
+    console.log(`server is up at ${port}`)
 })
